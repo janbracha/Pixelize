@@ -20,7 +20,27 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Jemný dekorativní pattern pro pozadí */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(147, 197, 253, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(191, 219, 254, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(224, 242, 254, 0.2) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }

@@ -27,7 +27,11 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-sky-50 via-white to-blue-50 text-gray-900 flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-900 flex flex-col min-h-screen relative`}
+        style={{ 
+          background: 'linear-gradient(135deg, #dbeafe 0%, #e0f2fe 20%, #f0f9ff 40%, #f0f9ff 60%, #bfdbfe 80%, #93c5fd 100%)',
+          backgroundAttachment: 'fixed'
+        }}
       >
         <Navigation />
         <main className="flex-grow">
