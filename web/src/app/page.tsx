@@ -12,23 +12,38 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* IT služby sekce */}
-          <div className="bg-gradient-to-br from-white to-sky-50 p-10 rounded-3xl shadow-xl border border-sky-100 hover:shadow-2xl hover:scale-105 transition-all duration-300">
-            <h2 className="text-3xl font-bold mb-6 text-sky-700">IT služby</h2>
-            <p className="text-gray-700 mb-8 leading-relaxed text-lg">
-              Poskytujeme komplexní IT služby v oblasti Apache Kafka, Kubernetes a Big Data. Specializujeme se na návrh, instalaci a provoz moderních datových platforem, které umožňují efektivní zpracování dat, vysokou dostupnost a škálovatelnost.
+          <div className="bg-gradient-to-br from-white to-sky-50 p-10 rounded-3xl shadow-xl border border-sky-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex flex-col h-full">
+            <h2 className="text-3xl font-bold mb-6 text-sky-700">IT služby – Apache Kafka, Kubernetes, Big Data</h2>
+            <p className="text-gray-700 mb-4 leading-relaxed text-base">
+              Pomáháme firmám využít plný potenciál moderních datových platforem. Specializujeme se na návrh, instalaci a provoz řešení postavených na Apache Kafka, Kubernetes a Big Data technologiích – od architektury přes implementaci až po monitoring.
             </p>
-            <Link href="/it" className="inline-block bg-gradient-to-r from-sky-500 to-blue-500 text-white px-8 py-3 rounded-full hover:from-sky-600 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg font-semibold">
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6 text-base flex-grow">
+              <li>Komplexní řešení od návrhu po provoz</li>
+              <li>Integrace do GitOps prostředí (Flux, Argo CD)</li>
+              <li>Monitoring & observabilita (Prometheus, Grafana, AKHQ)</li>
+              <li>Bezpečnostní standardy a optimalizace výkonu</li>
+              <li>Podpora hybridních scénářů – cloud i on-premise</li>
+            </ul>
+            <Link href="/it" className="inline-block bg-gradient-to-r from-sky-500 to-blue-500 text-white px-8 py-3 rounded-full hover:from-sky-600 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg font-semibold mt-auto">
               Více informací
             </Link>
           </div>
 
           {/* Projektování sekce */}
-          <div className="bg-gradient-to-br from-white to-blue-50 p-10 rounded-3xl shadow-xl border border-blue-100 hover:shadow-2xl hover:scale-105 transition-all duration-300">
-            <h2 className="text-3xl font-bold mb-6 text-sky-700">Projektování</h2>
-            <p className="text-gray-700 mb-8 leading-relaxed text-lg">
-              Poskytujeme projektovou, rozpočtovou a kontrolní činnost v oblasti sdělovací, zabezpečovací a elektro techniky. Zaměřujeme se na železniční infrastrukturu, lineární stavby a technologické celky.
+          <div className="bg-gradient-to-br from-white to-blue-50 p-10 rounded-3xl shadow-xl border border-blue-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex flex-col h-full">
+            <h2 className="text-3xl font-bold mb-6 text-sky-700">Projektování sdělovací, zabezpečovací techniky a elektro</h2>
+            <p className="text-gray-700 mb-4 leading-relaxed text-base">
+              Poskytujeme komplexní projektovou, rozpočtovou a kontrolní činnost v oblasti sdělovací, zabezpečovací a elektro techniky. Specializujeme se na železniční infrastrukturu, lineární stavby a technologické celky.
             </p>
-            <Link href="/projektovani" className="inline-block bg-gradient-to-r from-blue-500 to-sky-500 text-white px-8 py-3 rounded-full hover:from-blue-600 hover:to-sky-600 transition-all duration-300 shadow-md hover:shadow-lg font-semibold">
+            <p className="text-gray-700 font-semibold mb-3 text-base">Naše služby zahrnují:</p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6 text-base flex-grow">
+              <li>Projektovou dokumentaci pro SŽ a elektro</li>
+              <li>Návrh řešení pro železniční koridory, přejezdy a technologické objekty</li>
+              <li>Rozpočtovou dokumentaci a kalkulace nákladů</li>
+              <li>Technické konzultace a optimalizaci návrhu</li>
+              <li>Dozor a kontrolu při realizaci, včetně souladu s normami</li>
+            </ul>
+            <Link href="/projektovani" className="inline-block bg-gradient-to-r from-blue-500 to-sky-500 text-white px-8 py-3 rounded-full hover:from-blue-600 hover:to-sky-600 transition-all duration-300 shadow-md hover:shadow-lg font-semibold mt-auto">
               Více informací
             </Link>
           </div>
