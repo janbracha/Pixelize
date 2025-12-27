@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pixelize - IT a Projektování",
+  title: "Projekt & Develop - IT a Projektování",
   description: "Komplexní IT služby a projektování sdělovací a zabezpečovací techniky",
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-sky-50 via-white to-blue-50 text-gray-900`}
       >
         <Navigation />
         <main className="min-h-screen">
