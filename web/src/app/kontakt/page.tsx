@@ -1,3 +1,16 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Kontakt - Projekt & Develop s.r.o.",
+  description: "Kontaktujte nás pro IT služby (Apache Kafka, Kubernetes) nebo projektování železniční infrastruktury. Email: devops@projektdevelop.cz, Tel: +420 602 222 278",
+  keywords: ["kontakt", "Projekt & Develop", "IT služby kontakt", "projektování kontakt", "Nedabyle"],
+  openGraph: {
+    title: "Kontakt - Projekt & Develop s.r.o.",
+    description: "Kontaktujte nás pro IT služby nebo projektování železniční infrastruktury.",
+    url: "https://www.projektdevelop.cz/kontakt",
+  },
+};
+
 export default function Kontakt() {
   return (
     <div className="container mx-auto px-4 py-16">

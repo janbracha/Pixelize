@@ -1,4 +1,16 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Projekt & Develop - Váš partner pro inovativní řešení",
+  description: "Pomáháme firmám růst díky moderním datovým platformám a profesionálnímu projektování. Specializujeme se na Apache Kafka, Kubernetes, Big Data a železniční infrastrukturu.",
+  keywords: ["Apache Kafka", "Kubernetes", "Big Data", "DevOps", "projektování", "železniční infrastruktura", "IT služby", "data streaming"],
+  openGraph: {
+    title: "Projekt & Develop - Váš partner pro inovativní řešení",
+    description: "Pomáháme firmám růst díky moderním datovým platformám a profesionálnímu projektování.",
+    url: "https://www.projektdevelop.cz",
+  },
+};
 
 export default function Home() {
   return (

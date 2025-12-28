@@ -1,3 +1,16 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "IT služby - Apache Kafka, Kubernetes, Big Data | Projekt & Develop",
+  description: "Komplexní IT služby: Apache Kafka clustering, Kubernetes orchestrace, Big Data analýzy, GitOps automatizace. Monitoring, migrace dat a školení pro vaše týmy.",
+  keywords: ["Apache Kafka", "Kubernetes", "Big Data", "Kafka Connect", "data streaming", "monitoring", "GitOps", "Helm", "Strimzi", "školení Kafka"],
+  openGraph: {
+    title: "IT služby - Apache Kafka, Kubernetes, Big Data",
+    description: "Komplexní IT služby: Apache Kafka clustering, Kubernetes orchestrace, Big Data analýzy, GitOps automatizace.",
+    url: "https://www.projektdevelop.cz/it",
+  },
+};
+
 export default function IT() {
   return (
     <div className="container mx-auto px-4 py-16">

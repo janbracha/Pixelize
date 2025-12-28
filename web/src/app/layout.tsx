@@ -17,6 +17,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Projekt & Develop - IT a Projektování",
   description: "Komplexní IT služby a projektování sdělovací a zabezpečovací techniky",
+  keywords: ["Apache Kafka", "Kubernetes", "Big Data", "DevOps", "projektování", "železniční infrastruktura", "elektro", "sdělovací technika"],
+  authors: [{ name: "Projekt & Develop s.r.o." }],
+  openGraph: {
+    title: "Projekt & Develop - IT a Projektování",
+    description: "Komplexní IT služby a projektování sdělovací a zabezpečovací techniky",
+    url: "https://www.projektdevelop.cz",
+    siteName: "Projekt & Develop",
+    locale: "cs_CZ",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projekt & Develop - IT a Projektování",
+    description: "Komplexní IT služby a projektování sdělovací a zabezpečovací techniky",
+  },
 };
 
 export default function RootLayout({

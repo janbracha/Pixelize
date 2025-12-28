@@ -1,3 +1,16 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Projektování sdělovací a zabezpečovací techniky | Projekt & Develop",
+  description: "Komplexní projektová činnost pro železniční infrastrukturu: dokumentace pro SŽ, elektro projekty, rozpočty, dozor a kontrola staveb. Odborné poradenství.",
+  keywords: ["projektování", "železniční infrastruktura", "SŽ dokumentace", "sdělovací technika", "zabezpečovací technika", "elektro projekty", "dozor staveb"],
+  openGraph: {
+    title: "Projektování sdělovací a zabezpečovací techniky",
+    description: "Komplexní projektová činnost pro železniční infrastrukturu: dokumentace pro SŽ, elektro projekty, rozpočty, dozor a kontrola staveb.",
+    url: "https://www.projektdevelop.cz/projektovani",
+  },
+};
+
 export default function Projektovani() {
   return (
     <div className="container mx-auto px-4 py-16">
