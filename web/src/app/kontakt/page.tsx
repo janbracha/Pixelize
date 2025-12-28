@@ -1,17 +1,63 @@
+'use client';
+
+import { useState } from 'react';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "Kontakt - Projekt & Develop s.r.o.",
-  description: "Kontaktujte nás pro IT služby (Apache Kafka, Kubernetes) nebo projektování železniční infrastruktury. Email: devops@projektdevelop.cz, Tel: +420 602 222 278",
-  keywords: ["kontakt", "Projekt & Develop", "IT služby kontakt", "projektování kontakt", "Nedabyle"],
-  openGraph: {
-    title: "Kontakt - Projekt & Develop s.r.o.",
-    description: "Kontaktujte nás pro IT služby nebo projektování železniční infrastruktury.",
-    url: "https://www.projektdevelop.cz/kontakt",
-  },
-};
-
 export default function Kontakt() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: 'it',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        // Reset formuláře
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: 'it',
+          message: ''
+        });
+        // Reset status po 5 sekundách
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 5000);
+      }
+    } catch (error) {
+      console.error('Chyba při odesílání:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="max-w-4xl mx-auto">
@@ -20,6 +66,118 @@ export default function Kontakt() {
         <p className="text-xl text-gray-700 mb-12 leading-relaxed text-center">
           Máte zájem o naše služby nebo potřebujete více informací? Kontaktujte nás!
         </p>
+
+        {/* Kontaktní formulář */}
+        <div className="bg-gradient-to-br from-white to-sky-50 p-10 rounded-3xl shadow-xl border border-sky-100 mb-12">
+          <h2 className="text-2xl font-bold mb-6 text-sky-700">Napište nám</h2>
+          
+          {status === 'success' && (
+            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg border border-green-300">
+              ✓ Zpráva byla úspěšně odeslána. Brzy se vám ozveme!
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg border border-red-300">
+              ✗ Něco se pokazilo. Zkuste to prosím znovu nebo nás kontaktujte přímo emailem.
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+                  Jméno a příjmení *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all"
+                  placeholder="Jan Novák"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all"
+                  placeholder="jan.novak@email.cz"
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="phone" className="block text-gray-700 font-semibold mb-2">
+                  Telefon
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all"
+                  placeholder="+420 123 456 789"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="service" className="block text-gray-700 font-semibold mb-2">
+                  Oblast zájmu *
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all bg-white"
+                >
+                  <option value="it">IT služby</option>
+                  <option value="projektovani">Projektování</option>
+                  <option value="jine">Jiné</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
+                Zpráva *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={6}
+                className="w-full px-4 py-3 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all resize-vertical"
+                placeholder="Popište nám prosím vaše požadavky..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className="w-full bg-gradient-to-r from-sky-500 to-blue-500 text-white font-bold py-4 px-8 rounded-lg hover:from-sky-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === 'submitting' ? 'Odesílám...' : 'Odeslat zprávu'}
+            </button>
+          </form>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* IT služby kontakt */}
