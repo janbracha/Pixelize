@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Komplexní IT služby: Apache Kafka clustering, Kubernetes orchestrace, Big Data analýzy, GitOps automatizace.",
     url: "https://www.projektdevelop.cz/it",
   },
+  alternates: {
+    canonical: "https://www.projektdevelop.cz/it",
+  },
 };
 
 export default function IT() {

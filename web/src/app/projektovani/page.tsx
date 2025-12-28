@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "Komplexní projektová činnost pro železniční infrastrukturu: dokumentace pro SŽ, elektro projekty, rozpočty, dozor a kontrola staveb.",
     url: "https://www.projektdevelop.cz/projektovani",
   },
+  alternates: {
+    canonical: "https://www.projektdevelop.cz/projektovani",
+  },
 };
 
 export default function Projektovani() {

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     description: "Pomáháme firmám růst díky moderním datovým platformám a profesionálnímu projektování.",
     url: "https://www.projektdevelop.cz",
   },
+  alternates: {
+    canonical: "https://www.projektdevelop.cz",
+  },
 };
 
 export default function Home() {
