@@ -5,7 +5,6 @@ export default function StructuredData() {
     "name": "PROJEKT & DEVELOP s.r.o.",
     "legalName": "PROJEKT & DEVELOP s.r.o.",
     "url": "https://www.projektdevelop.cz",
-    "logo": "https://www.projektdevelop.cz/logo.png",
     "foundingDate": "2023",
     "address": {
       "@type": "PostalAddress",
@@ -56,7 +55,6 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "PROJEKT & DEVELOP s.r.o.",
-    "image": "https://www.projektdevelop.cz/logo.png",
     "telephone": "+420-602-222-278",
     "email": "devops@projektdevelop.cz",
     "address": {
