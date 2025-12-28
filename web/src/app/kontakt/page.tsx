@@ -53,8 +53,14 @@ export default function Kontakt() {
           <h2 className="text-2xl font-bold mb-6 text-sky-700">Informace o společnosti</h2>
           <div className="text-gray-700 space-y-3 text-lg">
             <p><strong>PROJEKT & DEVELOP s.r.o.</strong></p>
-            <p>Nedabyle</p>
+            <p>Nedabyle 122, PSČ 370 06</p>
             <p><strong>IČO:</strong> 17320488</p>
+            <p>
+              <strong>Web:</strong>{' '}
+              <a href="https://www.projektdevelop.cz" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 transition-colors">
+                www.projektdevelop.cz
+              </a>
+            </p>
             <p className="text-base leading-relaxed pt-2">
               Společnost s ručením omezeným PROJEKT & DEVELOP s.r.o., zapsána pod značkou C 32334/KSCB Krajským soudem v Českých Budějovicích
             </p>

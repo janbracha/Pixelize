@@ -2,23 +2,31 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-sky-600 via-blue-500 to-sky-600 text-white mt-auto">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-3 gap-8">
+    <footer className="bg-gradient-to-r from-sky-600 via-blue-500 to-sky-600 text-white mt-auto rounded-3xl m-4">
+      <div className="container mx-auto px-4 py-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {/* O společnosti */}
           <div>
-            <h3 className="text-xl font-bold mb-4">PROJEKT & DEVELOP s.r.o.</h3>
+            <h3 className="text-lg font-bold mb-2">PROJEKT & DEVELOP s.r.o.</h3>
             <p className="text-sky-100 leading-relaxed mb-2">
               Váš partner pro inovativní řešení v oblasti IT služeb a projektování.
             </p>
             <p className="text-sky-100 text-sm">
+              Nedabyle 122, PSČ 370 06
+            </p>
+            <p className="text-sky-100 text-sm">
               IČO: 17320488
+            </p>
+            <p className="text-sky-100 text-sm mt-2">
+              <a href="https://www.projektdevelop.cz" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                www.projektdevelop.cz
+              </a>
             </p>
           </div>
 
           {/* Rychlé odkazy */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Rychlé odkazy</h3>
+            <h3 className="text-lg font-bold mb-2">Rychlé odkazy</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/" className="text-sky-100 hover:text-white transition-colors">
@@ -45,7 +53,7 @@ export default function Footer() {
 
           {/* Kontakt */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Kontakt</h3>
+            <h3 className="text-lg font-bold mb-2">Kontakt</h3>
             <ul className="space-y-2 text-sky-100">
               <li>
                 <strong className="text-white">IT služby:</strong><br />
@@ -85,9 +93,9 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-sky-400 mt-8 pt-6 text-center text-sky-100">
+        <div className="border-t border-sky-400 mt-4 pt-4 text-center text-sky-100">
           <p>&copy; {new Date().getFullYear()} PROJEKT & DEVELOP s.r.o. Všechna práva vyhrazena.</p>
-          <p className="text-sm mt-2">Nedabyle | C 32334/KSCB Krajský soud v Českých Budějovicích</p>
+          <p className="text-sm mt-2">Nedabyle 122, PSČ 370 06 | C 32334/KSCB Krajský soud v Českých Budějovicích</p>
         </div>
       </div>
     </footer>
