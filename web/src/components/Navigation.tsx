@@ -26,6 +26,8 @@ export default function Navigation() {
             <li><Link href="/" className="hover:text-amber-100 transition-colors duration-200 font-medium">Home</Link></li>
             <li><Link href="/it" className="hover:text-amber-100 transition-colors duration-200 font-medium">IT služby</Link></li>
             <li><Link href="/projektovani" className="hover:text-amber-100 transition-colors duration-200 font-medium">Projektování</Link></li>
+            <li><Link href="/cenik" className="hover:text-amber-100 transition-colors duration-200 font-medium">Ceník</Link></li>
+            <li><Link href="/faq" className="hover:text-amber-100 transition-colors duration-200 font-medium">FAQ</Link></li>
             <li><Link href="/kontakt" className="hover:text-amber-100 transition-colors duration-200 font-medium">Kontakt</Link></li>
           </ul>
 
@@ -58,6 +60,16 @@ export default function Navigation() {
               <li>
                 <Link href="/projektovani" onClick={closeMenu} className="block py-2 px-4 hover:bg-sky-500 rounded-lg transition-colors font-medium">
                   Projektování
+                </Link>
+              </li>
+              <li>
+                <Link href="/cenik" onClick={closeMenu} className="block py-2 px-4 hover:bg-sky-500 rounded-lg transition-colors font-medium">
+                  Ceník
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" onClick={closeMenu} className="block py-2 px-4 hover:bg-sky-500 rounded-lg transition-colors font-medium">
+                  FAQ
                 </Link>
               </li>
               <li>
