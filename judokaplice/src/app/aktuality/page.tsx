@@ -1,36 +1,57 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
+interface NewsItem {
+  slug: string;
+  date: string;
+  title: string;
+  content: string;
+  fullContent?: string;
+  images?: string[];
+}
+
 export default function AktualityPage() {
-  const news = [
-    {
-      slug: "spusteni-noveho-webu",
-      date: "2. ledna 2026",
-      title: "Spuštění nového webu",
-      content: "S radostí vám představujeme náš nový web! Najdete zde všechny důležité informace o našem klubu, trénincích a akcích.",
-      image: null
-    },
-    {
-      slug: "vanocni-turnaj",
-      date: "15. prosince 2025",
-      title: "Vánoční turnaj úspěšně za námi",
-      content: "Děkujeme všem účastníkům tradičního vánočního turnaje. Gratulujeme všem medailistům a těšíme se na další akce v roce 2026!",
-      image: null
-    },
-    {
-      slug: "zapis-novych-clenu",
-      date: "1. prosince 2025",
-      title: "Zápis nových členů",
-      content: "Informujeme, že klub přijímá nové členy ve všech věkových kategoriích. První trénink je zdarma. Kontaktujte nás pro více informací.",
-      image: null
-    },
-    {
-      slug: "krajsky-prebor",
-      date: "10. listopadu 2025",
-      title: "Úspěchy našich judistů na krajském přeboru",
-      content: "Naši judisté dosáhli skvělých výsledků na krajském přeboru. Gratulujeme všem závodníkům k výborným výkonům!",
-      image: null
+  const [news, setNews] = useState<NewsItem[]>([]);
+
+  // Načtení z localStorage
+  useEffect(() => {
+    const savedNews = localStorage.getItem("judokaplice-news");
+    if (savedNews) {
+      setNews(JSON.parse(savedNews));
+    } else {
+      // Výchozí data, pokud localStorage je prázdný
+      const defaultNews: NewsItem[] = [
+        {
+          slug: "spusteni-noveho-webu",
+          date: "2. ledna 2026",
+          title: "Spuštění nového webu",
+          content: "S radostí vám představujeme náš nový web! Najdete zde všechny důležité informace o našem klubu, trénincích a akcích.",
+        },
+        {
+          slug: "vanocni-turnaj",
+          date: "15. prosince 2025",
+          title: "Vánoční turnaj úspěšně za námi",
+          content: "Děkujeme všem účastníkům tradičního vánočního turnaje. Gratulujeme všem medailistům a těšíme se na další akce v roce 2026!",
+        },
+        {
+          slug: "zapis-novych-clenu",
+          date: "1. prosince 2025",
+          title: "Zápis nových členů",
+          content: "Informujeme, že klub přijímá nové členy ve všech věkových kategoriích. První trénink je zdarma. Kontaktujte nás pro více informací.",
+        },
+        {
+          slug: "krajsky-prebor",
+          date: "10. listopadu 2025",
+          title: "Úspěchy našich judistů na krajském přeboru",
+          content: "Naši judisté dosáhli skvělých výsledků na krajském přeboru. Gratulujeme všem závodníkům k výborným výkonům!",
+        }
+      ];
+      setNews(defaultNews);
+      localStorage.setItem("judokaplice-news", JSON.stringify(defaultNews));
     }
-  ];
+  }, []);
 
   return (
     <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -79,10 +100,10 @@ export default function AktualityPage() {
               </svg>
             </Link>
             
-            {item.image && (
+            {item.images && item.images.length > 0 && (
               <div className="mt-4">
                 <img 
-                  src={item.image} 
+                  src={item.images[0]} 
                   alt={item.title}
                   className="rounded-lg w-full h-auto"
                 />

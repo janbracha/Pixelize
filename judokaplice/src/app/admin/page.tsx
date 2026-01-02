@@ -64,12 +64,15 @@ export default function AdminPage() {
       updatedNews = [...news];
       updatedNews[editingIndex] = formData;
     } else {
-      // Nová aktualita
-      updatedNews = [...news, formData];
+      // Nová aktualita - přidá na ZAČÁTEK (nejnovější první)
+      updatedNews = [formData, ...news];
     }
     
     setNews(updatedNews);
     localStorage.setItem("judokaplice-news", JSON.stringify(updatedNews));
+    
+    // Trigger storage event pro ostatní komponenty
+    window.dispatchEvent(new Event('storage'));
     
     // Reset formuláře
     setFormData({
@@ -81,7 +84,7 @@ export default function AdminPage() {
       images: []
     });
     setEditingIndex(null);
-    alert("Aktualita byla uložena!");
+    alert("Aktualita byla uložena! Obnovte stránku /aktuality pro zobrazení.");
   };
 
   const handleEdit = (index: number) => {
